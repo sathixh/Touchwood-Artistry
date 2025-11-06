@@ -3,637 +3,583 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Touchwood Artistry - Where Beauty Meets Magic ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Touchwood Artistry - Premium Beauty & Makeup Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --rose-gold: #f4c2c2;
-            --deep-rose: #d4869c;
-            --blush-pink: #ffeef7;
-            --cream: #fef9f3;
-            --lavender: #e8d5ff;
-            --mint: #d4f4dd;
-            --peach: #ffd4b3;
-            --text-primary: #2d2d2d;
-            --text-secondary: #666;
-            --shadow-soft: 0 8px 32px rgba(212, 134, 156, 0.15);
-            --shadow-hover: 0 12px 40px rgba(212, 134, 156, 0.25);
-            --gradient-main: linear-gradient(135deg, #ffeef7, #e8d5ff, #d4f4dd);
-            --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(244, 194, 194, 0.1));
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            position: relative;
+        :root {
+            --color-1: #ff6b9d;
+            --color-2: #c44569;
+            --color-3: #f8b500;
+            --color-4: #6c5ce7;
+            --color-5: #00b894;
+            --color-6: #0984e3;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --gray: #2d3436;
+            --gray-light: #636e72;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--text-primary);
-            background: var(--gradient-main);
-            position: relative;
+            background: var(--dark);
+            color: var(--light);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Gradient Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Adorable Pattern Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(244, 194, 194, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 75% 75%, rgba(232, 213, 255, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 75% 25%, rgba(212, 244, 221, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 25% 75%, rgba(255, 212, 179, 0.1) 0%, transparent 25%);
-            background-size: 80px 80px;
-            z-index: -2;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        /* Floating hearts pattern */
-        body::after {
-            content: '♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸 ♡ ✨ 🌸';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            font-size: 20px;
-            color: rgba(244, 194, 194, 0.1);
+            height: 100%;
             z-index: -1;
-            pointer-events: none;
-            white-space: pre-wrap;
-            word-spacing: 40px;
-            line-height: 100px;
-            animation: sparkle 15s linear infinite;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Color Orbs */
+        .color-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--color-1);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--color-4);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--color-3);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
-        @keyframes sparkle {
-            0% { opacity: 0.1; transform: translateY(0px); }
-            50% { opacity: 0.3; transform: translateY(-5px); }
-            100% { opacity: 0.1; transform: translateY(0px); }
-        }
-
-        /* Cute floating elements */
-        .floating-element {
+        /* Navigation */
+        nav {
             position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            font-size: 24px;
-            opacity: 0.6;
-            animation: floatAround 12s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .floating-element:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
-        .floating-element:nth-child(3) { top: 60%; left: 8%; animation-delay: 4s; }
-        .floating-element:nth-child(4) { bottom: 20%; right: 5%; animation-delay: 6s; }
-
-        @keyframes floatAround {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(5deg); }
-            50% { transform: translateY(-5px) rotate(-3deg); }
-            75% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--blush-pink), var(--lavender), var(--mint));
-            position: relative;
-            padding: 4rem 0;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
+            top: 0;
             width: 100%;
-            margin: 0;
+            padding: 1.5rem 0;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            transition: all 0.3s ease;
         }
 
-        header::before {
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(26, 26, 46, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: colorPulse 3s ease infinite;
+        }
+
+        @keyframes colorPulse {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-1), var(--color-4));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-nav {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            border: none;
+            border-radius: 50px;
+            color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .menu-toggle {
+            display: block;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Global Mobile Menu (used on all viewports) */
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-auto-rows: minmax(48px, auto);
+            transform: translateY(-12px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 99;
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+            animation: buttonGlow 1.5s ease infinite;
+        }
+
+        @keyframes buttonGlow {
+            0%, 100% { box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6); }
+            50% { box-shadow: 0 6px 30px rgba(108, 92, 231, 0.8); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 1;
+            background-image: url('assets/pic1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            perspective: 800px;
+            perspective-origin: center 85%;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4c2c2' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: slide 10s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(60px); }
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            width: 100%;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            font-style: italic;
-            background: linear-gradient(135deg, var(--deep-rose), var(--text-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 20px rgba(212, 134, 156, 0.3);
-            animation: glow 3s ease-in-out infinite alternate;
-            position: relative;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1::after {
-            content: '✨';
-            position: absolute;
-            top: -10px;
-            right: -30px;
-            font-size: 2rem;
-            animation: twinkle 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px rgba(212, 134, 156, 0.3)); }
-            to { filter: drop-shadow(0 0 20px rgba(212, 134, 156, 0.6)); }
-        }
-
-        @keyframes twinkle {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
-            50% { transform: scale(1.2) rotate(10deg); opacity: 1; }
-        }
-
-        .tagline {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            color: var(--deep-rose);
-            margin-bottom: 1rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            border: 2px solid rgba(244, 194, 194, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(244, 194, 194, 0.2), transparent);
-            transition: var(--transition);
-        }
-
-        .contact-info:hover::before {
-            left: 100%;
-        }
-
-        .contact-info:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--rose-gold);
-        }
-
-        .contact-info a {
-            color: var(--text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            font-size: 1.2rem;
-            position: relative;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.8), rgba(15, 52, 96, 0.85));
             z-index: 1;
         }
 
-        .phone-icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--deep-rose);
-            animation: pulse 2s ease-in-out infinite;
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4), var(--color-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 3s ease infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            z-index: 2;
+            transition: color 0.3s ease, transform 0.3s ease;
+            animation: scrollPulse 1.8s ease-in-out infinite;
+            transform-style: preserve-3d;
+            will-change: transform;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.35);
+        }
+
+        .scroll-down i {
+            font-size: 1.2rem;
+            transform: translateZ(8px);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+        }
+
+        .scroll-down:hover {
+            color: var(--color-1);
+            transform: translateX(-50%) translateY(-2px) rotateX(18deg);
+        }
+
+        .scroll-down span {
+            transform: translateZ(10px);
+        }
+
+        .scroll-down::before {
+            content: '';
+            position: absolute;
+            inset: -6px -12px;
+            border-radius: 999px;
+            background: radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,0.08), transparent 60%);
+            transform: translateZ(-14px);
+            filter: blur(2px);
+            pointer-events: none;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            color: var(--light);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--color-1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-1);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 2rem 2rem;
+            position: relative;
+            z-index: 1;
+            scroll-margin-top: 90px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 20px;
-            position: relative;
-            width: 100%;
-            overflow-x: hidden;
         }
 
         .section-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--deep-rose);
             text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title::before {
-            content: '🌸';
-            position: absolute;
-            left: -50px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            animation: bounce 2s ease-in-out infinite;
+        .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
         }
 
-        .section-title::after {
-            content: '🌸';
-            position: absolute;
-            right: -50px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            animation: bounce 2s ease-in-out infinite reverse;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(-50%) scale(1); }
-            50% { transform: translateY(-60%) scale(1.1); }
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 2.1rem;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        /* Enhanced Services Grid */
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
-            position: relative;
-            padding: 1rem;
-        }
-
-        .services-grid::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(244, 194, 194, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(232, 213, 255, 0.1) 0%, transparent 50%),
-                linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
-            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
-            z-index: -1;
-            animation: patternFloat 20s linear infinite;
-        }
-
-        @keyframes patternFloat {
-            0% { background-position: 0% 0%, 0% 0%, 0 0, 0 0; }
-            100% { background-position: 100% 100%, 100% 100%, 40px 40px, 40px 40px; }
         }
 
         .service-card {
-            background: var(--gradient-card);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2rem;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 250px;
         }
 
         .service-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose), var(--lavender));
-            border-radius: 25px 25px 0 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-                linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
-            background-size: 100% 100%, 10px 10px;
-            opacity: 0;
-            transition: var(--transition);
+        .service-card:hover::before {
+            left: 100%;
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--color-1);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: var(--deep-rose);
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
-            transition: var(--transition);
-            filter: drop-shadow(0 4px 8px rgba(212, 134, 156, 0.3));
-            position: relative;
-        }
-
-        .service-icon::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, rgba(244, 194, 194, 0.2) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 2s ease-in-out infinite;
+            transition: transform 0.3s ease;
         }
 
         .service-card:hover .service-icon {
             transform: scale(1.2) rotate(5deg);
-            color: var(--rose-gold);
         }
 
-        .service-title {
+        .service-card h3 {
             font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
         }
 
-        .service-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose));
-            border-radius: 2px;
-            transition: var(--transition);
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
         }
 
-        .service-card:hover .service-title::after {
-            width: 60px;
-        }
-
-        .service-price {
-            color: var(--deep-rose);
-            font-weight: 600;
-            font-size: 1.1rem;
-            background: rgba(244, 194, 194, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-price {
-            background: rgba(244, 194, 194, 0.2);
-            transform: scale(1.05);
-        }
-
-        /* Enhanced Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-                padding: 0.5rem;
-            }
-
-            .service-card {
-                min-height: 220px;
-                padding: 1.5rem;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .service-price {
-                font-size: 1rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .service-card {
-                min-height: 200px;
-                padding: 1.2rem;
-            }
-
-            .service-icon {
-                font-size: 2.2rem;
-            }
-
-            .service-title {
-                font-size: 1.1rem;
-            }
-
-            .service-price {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.6rem;
-            }
-        }
-
-        /* Enhanced Image Sliders */
+        /* Image Sliders */
         .slider-container {
             position: relative;
             overflow: hidden;
+            border-radius: 20px;
             margin: 3rem auto;
-            border-radius: 30px;
-            box-shadow: var(--shadow-soft);
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            transition: var(--transition);
-            border: 3px solid rgba(244, 194, 194, 0.3);
-        }
-
-        .slider-container:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--rose-gold);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .slider {
             display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            flex-shrink: 0;
+            opacity: 0.85;
+            transform: scale(1);
+            transition: opacity 0.8s ease, transform 1.2s ease, filter 0.8s ease;
+            will-change: transform, opacity, filter;
+        }
+
+        .slider img.active {
+            opacity: 1;
+            transform: scale(1.04);
+            filter: saturate(1.08) contrast(1.04);
+            animation: kenburns 8s ease-in-out forwards;
+        }
+
+        @keyframes kenburns {
+            0% { transform: scale(1.02) translate3d(0, 0, 0); }
+            50% { transform: scale(1.06) translate3d(0.5%, -0.5%, 0); }
+            100% { transform: scale(1.1) translate3d(-0.5%, 0.5%, 0); }
         }
 
         .slider-container#slider2 {
-            max-width: 500px !important; /* Reduced width for portrait orientation */
-            height: 650px; /* Fixed height for portrait images */
+            max-width: 500px;
+            height: 650px;
             margin: 3rem auto;
         }
 
         .slider-container#slider2 .slider {
             height: 100%;
-            align-items: center;
         }
 
         .slider-container#slider2 .slider img {
-            width: 100%;
-            height: 650px; /* Taller height for portrait images */
-            max-height: 650px;
+            height: 650px;
             object-fit: cover;
-            object-position: center top; /* Focus on the top part of portrait images */
-            border-radius: 25px;
-            padding: 15px;
-            transition: var(--transition);
-            filter: brightness(1.05) saturate(1.1);
-        }
-
-        .slider-container#slider2 .slider img:hover {
-            transform: scale(0.98);
-            filter: brightness(1.1) saturate(1.2);
-        }
-
-        /* Mobile responsiveness for portrait slider */
-        @media (max-width: 768px) {
-            .slider-container#slider2 {
-                max-width: 90% !important;
-                height: 500px;
-            }
-            
-            .slider-container#slider2 .slider img {
-                height: 450px;
-                max-height: 450px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .slider-container#slider2 {
-                height: 400px;
-            }
-            
-            .slider-container#slider2 .slider img {
-                height: 350px;
-                max-height: 350px;
-                padding: 10px;
-            }
-        }
-
-
-        .slider img {
-            width: 100%;
-            height: auto;
-            max-height: 450px;
-            object-fit: cover;
-            flex-shrink: 0;
-            border-radius: 25px;
-            padding: 15px;
-            transition: var(--transition);
-            filter: brightness(1.05) saturate(1.1);
-        }
-
-        .slider img:hover {
-            transform: scale(0.98);
-            filter: brightness(1.1) saturate(1.2);
         }
 
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
         .pricing-card {
-            background: var(--gradient-card);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
@@ -641,578 +587,597 @@
         .pricing-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(244, 194, 194, 0.1), transparent);
-            animation: rotate 8s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-1), var(--color-4), var(--color-3));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
+        .pricing-card:hover::before {
+            transform: scaleX(1);
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .pricing-content {
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
         }
 
         .price-tag {
-            background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
             display: inline-block;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(212, 134, 156, 0.4);
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            color: var(--light);
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
         }
 
-        /* About Section Enhancement */
+        /* About Section */
         .about-section {
-            background: linear-gradient(135deg, var(--cream), var(--blush-pink));
-            padding: 6rem 0;
-            margin: 4rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f4c2c2' fill-opacity='0.03'%3E%3Cpath d='M50 17.5L57.5 32.5H72.5L60 42.5L65 57.5L50 47.5L35 57.5L40 42.5L27.5 32.5H42.5L50 17.5Z'/%3E%3C/g%3E%3C/svg%3E");
-            animation: twinkleBackground 20s linear infinite;
-        }
-
-        @keyframes twinkleBackground {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(100px) translateY(100px); }
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
+            gap: 2rem;
         }
 
         .about-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            border: 2px solid rgba(244, 194, 194, 0.2);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.4s ease;
         }
 
         .about-card:hover {
-            transform: translateY(-15px) rotate(2deg);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--rose-gold);
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
         }
 
         .about-icon {
-            font-size: 3.5rem;
-            color: var(--deep-rose);
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1.5rem;
             display: block;
-            transition: var(--transition);
         }
 
-        .about-card:hover .about-icon {
-            transform: scale(1.3) rotate(-5deg);
-            filter: drop-shadow(0 8px 16px rgba(212, 134, 156, 0.4));
-        }
-
-        .about-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .about-description {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Footer Enhancement */
+        /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
-            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 4rem 2rem 2rem;
             text-align: center;
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
-            overflow: hidden;
-            width: 100%;
-            margin: 0;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 15c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15zm0 2c-7.18 0-13 5.82-13 13s5.82 13 13 13 13-5.82 13-13-5.82-13-13-13z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: float 15s ease-in-out infinite;
+            z-index: 1;
         }
 
         .footer-content {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .footer-title {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive Design */
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .section-title { font-size: 2.5rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .about-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-            .container { 
-                padding: 2rem 15px;
-                width: 100%;
-                margin: 0;
-            }
-            .contact-info { padding: 1rem 2rem; font-size: 1rem; }
-            
-            header {
-                padding: 3rem 0;
-                margin: 0;
-                width: 100vw;
-                position: relative;
-                left: 50%;
-                right: 50%;
-                margin-left: -50vw;
-                margin-right: -50vw;
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
             }
 
-            footer {
-                padding: 3rem 0 1.5rem;
-                margin: 0;
-                width: 100vw;
-                position: relative;
-                left: 50%;
-                right: 50%;
-                margin-left: -50vw;
-                margin-right: -50vw;
+            .nav-links a {
+                display: none;
             }
 
-            .header-content, .footer-content {
-                padding: 0 15px;
-                width: 100%;
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(18px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                display: grid;
+                grid-auto-rows: minmax(48px, auto);
+                transform: translateY(-12px);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                z-index: 99;
+            }
+
+            .mobile-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .mobile-menu a {
+                color: var(--light);
+                text-decoration: none;
+                padding: 1rem 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+                background-attachment: scroll;
+            }
+
+            .services-grid,
+            .pricing-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-container#slider2 {
+                max-width: 90%;
+                height: 500px;
+            }
+
+            .slider-container#slider2 .slider img {
+                height: 500px;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .service-card { padding: 1.5rem; }
-            .pricing-card { padding: 2rem; }
-            .about-card { padding: 2rem 1.5rem; }
-            
-            header {
-                padding: 2.5rem 0;
-            }
-
-            footer {
-                padding: 2.5rem 0 1rem;
-            }
-
-            .header-content, .footer-content {
-                padding: 0 10px;
-            }
-
-            .container {
-                padding: 2rem 10px;
-            }
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        /* Additional cute animations */
-        .sparkle {
-            position: absolute;
-            color: var(--rose-gold);
-            font-size: 1rem;
-            animation: sparkleFloat 3s ease-in-out infinite;
-            pointer-events: none;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .section-divider {
+        /* Divider */
+        .divider {
             width: 80%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose), var(--rose-gold));
-            margin: 2rem auto;
-            border-radius: 3px;
-            box-shadow: 0 2px 4px rgba(212, 134, 156, 0.3);
-        }
-
-        @keyframes sparkleFloat {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-            50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-1), transparent);
+            margin: 4rem auto;
         }
     </style>
 </head>
 <body>
-    <div class="floating-element">💄</div>
-    <div class="floating-element">💅</div>
-    <div class="floating-element">👑</div>
-    <div class="floating-element">✨</div>
+    <div class="animated-bg"></div>
+    <div class="color-orb orb-1"></div>
+    <div class="color-orb orb-2"></div>
+    <div class="color-orb orb-3"></div>
 
-    <header>
-        <div class="header-content">
+    <nav id="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Touchwood Artistry</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:9095031045" class="btn-nav"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:9095031045">Call Now</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
             <h1>Touchwood Artistry</h1>
-            <div class="tagline">Where Beauty Dreams Come True</div>
-           
-            <div class="contact-info">
-                <a href="tel:9095031045">
-                    <svg class="phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-                    </svg>
-                    Call: 9095031045
-                </a>
+            <p>Where Beauty Dreams Come True - Premium Bridal Makeup, HD Makeup, Clinical Aesthetics & Wedding Crew Styling</p>
+            <div class="hero-buttons">
+                <a href="tel:9095031045" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
             </div>
         </div>
-    </header>
+        <a href="#services" class="scroll-down"><span>Scroll Down</span> <i class="fas fa-angles-down"></i></a>
+    </section>
 
-    <div class="container">
-        <h2 class="section-title">Our Magical Services</h2>
-        <div class="section-subtitle">Transform yourself with our premium beauty treatments ✨</div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-spray-can service-icon"></i>
-                <div class="service-title">Airbrush Makeup</div>
-                <div class="service-price">Premium Finish</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-camera service-icon"></i>
-                <div class="service-title">Ultra Pro HD Makeup</div>
-                <div class="service-price">Camera Ready</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-camera-retro service-icon"></i>
-                <div class="service-title">HD Makeup</div>
-                <div class="service-price">Picture Perfect</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-magic service-icon"></i>
-                <div class="service-title">Partial HD Makeup</div>
-                <div class="service-price">Subtle Glamour</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-palette service-icon"></i>
-                <div class="service-title">MAC Makeup</div>
-                <div class="service-price">Professional Grade</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-mask service-icon"></i>
-                <div class="service-title">Matte Look</div>
-                <div class="service-price">Flawless Finish</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-crown service-icon"></i>
-                <div class="service-title">Semi Bridal Makeup</div>
-                <div class="service-price">Elegant Beauty</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-user-tie service-icon"></i>
-                <div class="service-title">Groom Makeup</div>
-                <div class="service-price">Handsome Enhancement</div>
-            </div>
-        </div>
-
-        <div class="section-subtitle">Bridals starts from ₹8000 onwards🌟</div>
-
-        <div class="slider-container" id="slider1" style="max-width: 700px;">
-            <div class="slider">
-                <img src="assets/pic1.jpeg" alt="Gorgeous Makeup Transformation">
-                <img src="assets/pic2.jpeg" alt="Bridal Beauty Perfection">
-                <img src="assets/pic3.jpeg" alt="Professional Makeup Artistry">
-                <img src="assets/pic4.jpeg" alt="Stunning Beauty Look">
-                <img src="assets/pic5.jpeg" alt="Elegant Makeup Style">
-                <img src="assets/pic6.jpeg" alt="Beautiful Bridal Look">
-                <img src="assets/pic7.jpeg" alt="Glamorous Transformation">
-                <img src="assets/pic8.jpeg" alt="Perfect Wedding Look">
-                <img src="assets/pic9.jpeg" alt="Professional Beauty">
-                <img src="assets/pic10.jpeg" alt="Stunning Makeup Art">
-                <img src="assets/pic11.jpeg" alt="Beautiful Enhancement">
-                <img src="assets/pic12.jpeg" alt="Elegant Beauty">
-                <img src="assets/pic13.jpeg" alt="Perfect Finish">
-                <img src="assets/pic14.jpeg" alt="Gorgeous Results">
-                <img src="assets/pic15.jpeg" alt="Beautiful Transformation">
-                <img src="assets/pic17.jpeg" alt="Professional Results">
-                <img src="assets/pic18.jpeg" alt="Stunning Beauty">
-                <img src="assets/pic19.jpeg" alt="Perfect Look">
-                <img src="assets/pic20.jpeg" alt="Beautiful Artistry">
-                <img src="assets/pic21.jpeg" alt="Elegant Style">
-                <img src="assets/pic22.jpeg" alt="Gorgeous Finish">
-                <img src="assets/pic23.jpeg" alt="Perfect Beauty">
-            </div>
-        </div>
-
-        <div class="slider-container" id="slider2" style="max-width: 1000px;">
-            <div class="slider">
-                <img src="assets/piclong1.jpeg" alt="Beautiful Portfolio Shot">
-                <img src="assets/piclong2.jpeg" alt="Professional Beauty Work">
-                <img src="assets/piclong3.jpeg" alt="Stunning Transformation">
-                <img src="assets/piclong4.jpeg" alt="Elegant Beauty">
-                <img src="assets/piclong5.jpeg" alt="Perfect Artistry">
-                <img src="assets/piclong6.jpeg" alt="Beautiful Results">
-                <img src="assets/piclong7.jpeg" alt="Gorgeous Enhancement">
-                <img src="assets/piclong8.jpeg" alt="Professional Beauty">
-                <img src="assets/piclong9.jpeg" alt="Stunning Look">
-                <img src="assets/piclong10.jpeg" alt="Perfect Finish">
-                <img src="assets/piclong11.jpeg" alt="Beautiful Work">
-                <img src="assets/piclong12.jpeg" alt="Elegant Transformation">
-                <img src="assets/piclong13.jpeg" alt="Professional Artistry">
-                <img src="assets/piclong14.jpeg" alt="Gorgeous Beauty">
-                <img src="assets/piclong15.jpeg" alt="Perfect Enhancement">
-                <img src="assets/piclong16.jpeg" alt="Stunning Results">
-            </div>
-        </div>
-
-        <hr style="width: 80%; height: 3px; background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose), var(--rose-gold)); border: none; margin: 2rem auto; border-radius: 3px;">
-
-        <h2 class="section-title">Wedding Crew Perfection</h2>
-        <div class="section-subtitle">Making your entire wedding party look absolutely stunning 💕</div>
-        
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <div class="price-tag">Starting ₹4,000</div>
-                    <h3 class="service-title">👰 Bridesmaids Glam</h3>
-                    <p class="about-description">Complete makeup transformation for your beautiful bridesmaids</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <div class="price-tag">₹800</div>
-                    <h3 class="service-title">👗 Saree Draping</h3>
-                    <p class="about-description">Perfect saree styling with elegant draping techniques</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <div class="price-tag">₹800</div>
-                    <h3 class="service-title">💇‍♀️ Hair Styling</h3>
-                    <p class="about-description">Beautiful hair styling to complement your look</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <div class="price-tag">₹2,500</div>
-                    <h3 class="service-title">✨ Face Makeup</h3>
-                    <p class="about-description">Flawless face makeup for that perfect glow</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slider-container" id="slider3" style="max-width: 600px;">
-            <div class="slider">
-                <img src="assets/Crew1.jpeg" alt="Beautiful Wedding Crew Look">
-                <img src="assets/Crew2.jpeg" alt="Stunning Bridesmaids Makeup">
-                <img src="assets/Crew3.jpeg" alt="Perfect Wedding Party">
-                <img src="assets/Crew4.jpeg" alt="Elegant Crew Styling">
-            </div>
-        </div>
-        <hr style="width: 80%; height: 3px; background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose), var(--rose-gold)); border: none; margin: 2rem auto; border-radius: 3px;">
-
-        <h2 class="section-title">Clinical Aesthetic Treatments</h2>
-        <div class="section-subtitle">Advanced skincare solutions for radiant, healthy skin 🌟</div>
-        
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-syringe service-icon"></i>
-                <div class="service-title">Micro Needling</div>
-                <div class="service-price">Skin Rejuvenation</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-bolt service-icon"></i>
-                <div class="service-title">HF & RF Treatments</div>
-                <div class="service-price">Advanced Technology</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-spa service-icon"></i>
-                <div class="service-title">Professional Skin Peels</div>
-                <div class="service-price">Deep Cleansing</div>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-hand-sparkles service-icon"></i>
-                <div class="service-title">Luxury Facials</div>
-                <div class="service-price">Premium Skincare</div>
-            </div>
-        </div>
-
-        <div class="slider-container" id="slider4" style="max-width: 600px;">
-            <div class="slider">
-                <img src="assets/Aesthetic1.jpeg" alt="Professional Aesthetic Treatment">
-                <img src="assets/Aesthetic2.jpeg" alt="Advanced Skincare Service">
-                <img src="assets/Aesthetic3.jpeg" alt="Clinical Beauty Treatment">
-                <img src="assets/Aesthetic4.jpeg" alt="Premium Facial Service">
-            </div>
-        </div>
-
-        <div style="width: 80%; height: 2px; background: linear-gradient(90deg, transparent, var(--deep-rose), transparent); margin: 4rem auto;"></div>
-
-        <h2 class="section-title">Special Offers & Highlights</h2>
-        <div class="section-subtitle">Exclusive deals and premium inclusions for our valued clients 🎁</div>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <i class="fas fa-percentage service-icon"></i>
-                    <h3 class="service-title">Group Discounts</h3>
-                    <p class="about-description">Book bridesmaids along with bridal packages for amazing discounts</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <i class="fas fa-gift service-icon"></i>
-                    <h3 class="service-title">Complimentary Groom Makeup</h3>
-                    <p class="about-description">Free groom makeup included with select bridal packages</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <i class="fas fa-gem service-icon"></i>
-                    <h3 class="service-title">Premium Inclusions</h3>
-                    <p class="about-description">Extensions, lashes, and contact lenses provided</p>
-                </div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-content">
-                    <i class="fas fa-ring service-icon"></i>
-                    <h3 class="service-title">Jewelry Coordination</h3>
-                    <p class="about-description">Complete jewelry styling as per bride's preference</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="about-section">
+    <section id="services">
         <div class="container">
-            <h2 class="section-title">Meet Our Artist</h2>
-            <div class="section-subtitle">Passionate about creating beauty that tells your unique story 💖</div>
-            <div class="about-grid">
-                <div class="about-card">
-                    <i class="fas fa-user-crown about-icon"></i>
-                    <h3 class="about-title">Keerthi Bala</h3>
-                    <p class="about-description">Master Makeup Artist & Hair Stylist specializing in bridal beauty and aesthetic treatments</p>
+            <div class="section-title fade-in">
+                <h2>Our Magical Services</h2>
+                <p>Transform yourself with our premium beauty treatments</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-spray-can service-icon"></i>
+                    <h3>Airbrush Makeup</h3>
+                    <p>Premium Finish</p>
                 </div>
-                <div class="about-card">
-                    <i class="fas fa-award about-icon"></i>
-                    <h3 class="about-title">10+ Years Experience</h3>
-                    <p class="about-description">Decade of expertise in creating stunning transformations for brides and clients</p>
+                <div class="service-card fade-in">
+                    <i class="fas fa-camera service-icon"></i>
+                    <h3>Ultra Pro HD Makeup</h3>
+                    <p>Camera Ready</p>
                 </div>
-                <div class="about-card">
-                    <i class="fas fa-heart about-icon"></i>
-                    <h3 class="about-title">500+ Happy Clients</h3>
-                    <p class="about-description">Successfully completed hundreds of makeup services with satisfied customers</p>
+                <div class="service-card fade-in">
+                    <i class="fas fa-camera-retro service-icon"></i>
+                    <h3>HD Makeup</h3>
+                    <p>Picture Perfect</p>
                 </div>
-                <div class="about-card">
-                    <i class="fas fa-plane about-icon"></i>
-                    <h3 class="about-title">Travel Available</h3>
-                    <p class="about-description">We come to you! Available for destination weddings and events</p>
+                <div class="service-card fade-in">
+                    <i class="fas fa-magic service-icon"></i>
+                    <h3>Partial HD Makeup</h3>
+                    <p>Subtle Glamour</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-palette service-icon"></i>
+                    <h3>MAC Makeup</h3>
+                    <p>Professional Grade</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-mask service-icon"></i>
+                    <h3>Matte Look</h3>
+                    <p>Flawless Finish</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-crown service-icon"></i>
+                    <h3>Semi Bridal Makeup</h3>
+                    <p>Elegant Beauty</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-user-tie service-icon"></i>
+                    <h3>Groom Makeup</h3>
+                    <p>Handsome Enhancement</p>
+                </div>
+            </div>
+
+            <div class="section-title fade-in" style="margin-top: 3rem;">
+                <p style="font-size: 1.3rem; color: var(--color-3);">Bridals starts from ₹8000 onwards</p>
+            </div>
+
+            <div class="slider-container fade-in" id="slider1" style="max-width: 700px;">
+                <div class="slider">
+                    <img src="assets/pic1.jpeg" alt="Gorgeous Makeup Transformation">
+                    <img src="assets/pic2.jpeg" alt="Bridal Beauty Perfection">
+                    <img src="assets/pic3.jpeg" alt="Professional Makeup Artistry">
+                    <img src="assets/pic4.jpeg" alt="Stunning Beauty Look">
+                    <img src="assets/pic5.jpeg" alt="Elegant Makeup Style">
+                    <img src="assets/pic6.jpeg" alt="Beautiful Bridal Look">
+                    <img src="assets/pic7.jpeg" alt="Glamorous Transformation">
+                    <img src="assets/pic8.jpeg" alt="Perfect Wedding Look">
+                    <img src="assets/pic9.jpeg" alt="Professional Beauty">
+                    <img src="assets/pic10.jpeg" alt="Stunning Makeup Art">
+                    <img src="assets/pic11.jpeg" alt="Beautiful Enhancement">
+                    <img src="assets/pic12.jpeg" alt="Elegant Beauty">
+                    <img src="assets/pic13.jpeg" alt="Perfect Finish">
+                    <img src="assets/pic14.jpeg" alt="Gorgeous Results">
+                    <img src="assets/pic15.jpeg" alt="Beautiful Transformation">
+                    <img src="assets/pic17.jpeg" alt="Professional Results">
+                    <img src="assets/pic18.jpeg" alt="Stunning Beauty">
+                    <img src="assets/pic19.jpeg" alt="Perfect Look">
+                    <img src="assets/pic20.jpeg" alt="Beautiful Artistry">
+                    <img src="assets/pic21.jpeg" alt="Elegant Style">
+                    <img src="assets/pic22.jpeg" alt="Gorgeous Finish">
+                    <img src="assets/pic23.jpeg" alt="Perfect Beauty">
+                </div>
+            </div>
+
+            <div class="slider-container fade-in" id="slider2" style="max-width: 1000px;">
+                <div class="slider">
+                    <img src="assets/piclong1.jpeg" alt="Beautiful Portfolio Shot">
+                    <img src="assets/piclong2.jpeg" alt="Professional Beauty Work">
+                    <img src="assets/piclong3.jpeg" alt="Stunning Transformation">
+                    <img src="assets/piclong4.jpeg" alt="Elegant Beauty">
+                    <img src="assets/piclong5.jpeg" alt="Perfect Artistry">
+                    <img src="assets/piclong6.jpeg" alt="Beautiful Results">
+                    <img src="assets/piclong7.jpeg" alt="Gorgeous Enhancement">
+                    <img src="assets/piclong8.jpeg" alt="Professional Beauty">
+                    <img src="assets/piclong9.jpeg" alt="Stunning Look">
+                    <img src="assets/piclong10.jpeg" alt="Perfect Finish">
+                    <img src="assets/piclong11.jpeg" alt="Beautiful Work">
+                    <img src="assets/piclong12.jpeg" alt="Elegant Transformation">
+                    <img src="assets/piclong13.jpeg" alt="Professional Artistry">
+                    <img src="assets/piclong14.jpeg" alt="Gorgeous Beauty">
+                    <img src="assets/piclong15.jpeg" alt="Perfect Enhancement">
+                    <img src="assets/piclong16.jpeg" alt="Stunning Results">
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-title fade-in">
+                <h2>Wedding Crew Perfection</h2>
+                <p>Making your entire wedding party look absolutely stunning</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="price-tag">Starting ₹4,000</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">👰 Bridesmaids Glam</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Complete makeup transformation for your beautiful bridesmaids</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="price-tag">₹800</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">👗 Saree Draping</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Perfect saree styling with elegant draping techniques</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="price-tag">₹800</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">💇‍♀️ Hair Styling</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Beautiful hair styling to complement your look</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="price-tag">₹2,500</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">✨ Face Makeup</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Flawless face makeup for that perfect glow</p>
+                </div>
+            </div>
+
+            <div class="slider-container fade-in" id="slider3" style="max-width: 600px;">
+                <div class="slider">
+                    <img src="assets/Crew1.jpeg" alt="Beautiful Wedding Crew Look">
+                    <img src="assets/Crew2.jpeg" alt="Stunning Bridesmaids Makeup">
+                    <img src="assets/Crew3.jpeg" alt="Perfect Wedding Party">
+                    <img src="assets/Crew4.jpeg" alt="Elegant Crew Styling">
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-title fade-in">
+                <h2>Clinical Aesthetic Treatments</h2>
+                <p>Advanced skincare solutions for radiant, healthy skin</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-syringe service-icon"></i>
+                    <h3>Micro Needling</h3>
+                    <p>Skin Rejuvenation</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-bolt service-icon"></i>
+                    <h3>HF & RF Treatments</h3>
+                    <p>Advanced Technology</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-spa service-icon"></i>
+                    <h3>Professional Skin Peels</h3>
+                    <p>Deep Cleansing</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-hand-sparkles service-icon"></i>
+                    <h3>Luxury Facials</h3>
+                    <p>Premium Skincare</p>
+                </div>
+            </div>
+
+            <div class="slider-container fade-in" id="slider4" style="max-width: 600px;">
+                <div class="slider">
+                    <img src="assets/Aesthetic1.jpeg" alt="Professional Aesthetic Treatment">
+                    <img src="assets/Aesthetic2.jpeg" alt="Advanced Skincare Service">
+                    <img src="assets/Aesthetic3.jpeg" alt="Clinical Beauty Treatment">
+                    <img src="assets/Aesthetic4.jpeg" alt="Premium Facial Service">
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-title fade-in">
+                <h2>Special Offers & Highlights</h2>
+                <p>Exclusive deals and premium inclusions for our valued clients</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <i class="fas fa-percentage service-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Group Discounts</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Book bridesmaids along with bridal packages for amazing discounts</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <i class="fas fa-gift service-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Complimentary Groom Makeup</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Free groom makeup included with select bridal packages</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <i class="fas fa-gem service-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Premium Inclusions</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Extensions, lashes, and contact lenses provided</p>
+                </div>
+                <div class="pricing-card fade-in">
+                    <i class="fas fa-ring service-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Jewelry Coordination</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Complete jewelry styling as per bride's preference</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Gallery</h2>
+                <p>Explore our favorite looks and transformations</p>
+            </div>
+            <div class="slider-container fade-in" id="gallerySlider" style="max-width: 1000px;">
+                <div class="slider">
+                    <img src="assets/piclong1.jpeg" alt="Gallery Image 1">
+                    <img src="assets/piclong2.jpeg" alt="Gallery Image 2">
+                    <img src="assets/piclong3.jpeg" alt="Gallery Image 3">
+                    <img src="assets/piclong4.jpeg" alt="Gallery Image 4">
+                    <img src="assets/piclong5.jpeg" alt="Gallery Image 5">
+                    <img src="assets/piclong6.jpeg" alt="Gallery Image 6">
+                    <img src="assets/piclong7.jpeg" alt="Gallery Image 7">
+                    <img src="assets/piclong8.jpeg" alt="Gallery Image 8">
+                    <img src="assets/piclong9.jpeg" alt="Gallery Image 9">
+                    <img src="assets/piclong10.jpeg" alt="Gallery Image 10">
+                    <img src="assets/piclong11.jpeg" alt="Gallery Image 11">
+                    <img src="assets/piclong12.jpeg" alt="Gallery Image 12">
+                    <img src="assets/piclong13.jpeg" alt="Gallery Image 13">
+                    <img src="assets/piclong14.jpeg" alt="Gallery Image 14">
+                    <img src="assets/piclong15.jpeg" alt="Gallery Image 15">
+                    <img src="assets/piclong16.jpeg" alt="Gallery Image 16">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Meet Our Artist</h2>
+                <p>Passionate about creating beauty that tells your unique story</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <i class="fas fa-face-smile about-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Keerthi</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Master Makeup Artist & Hair Stylist specializing in bridal beauty and aesthetic treatments</p>
+                </div>
+                <div class="about-card fade-in">
+                    <i class="fas fa-award about-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">10+ Years Experience</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Decade of expertise in creating stunning transformations for brides and clients</p>
+                </div>
+                <div class="about-card fade-in">
+                    <i class="fas fa-heart about-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">500+ Happy Clients</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Successfully completed hundreds of makeup services with satisfied customers</p>
+                </div>
+                <div class="about-card fade-in">
+                    <i class="fas fa-plane about-icon"></i>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--light);">Travel Available</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7);">We come to you! Available for destination weddings and events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
         <div class="footer-content">
             <div class="footer-title">Touchwood Artistry</div>
             <p>✨ Creating Magic, One Face at a Time ✨</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Touchwood Artistry - All Rights Reserved</p>
+            <div style="margin-top: 2rem;">
+                <a href="tel:9095031045" class="btn btn-primary" style="margin: 0.5rem;"><i class="fas fa-phone"></i> Call: 9095031045</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.6;">© 2025 Touchwood Artistry - All Rights Reserved</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add sparkle effects
-            function createSparkle() {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.innerHTML = '✨';
-                sparkle.style.left = Math.random() * window.innerWidth + 'px';
-                sparkle.style.top = Math.random() * window.innerHeight + 'px';
-                document.body.appendChild(sparkle);
-                
-                setTimeout(() => {
-                    sparkle.remove();
-                }, 3000);
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
-            
-            // Create sparkles periodically
-            setInterval(createSparkle, 2000);
-            
-            // Enhanced slider functionality
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Image Sliders
+        document.addEventListener('DOMContentLoaded', () => {
             const sliders = document.querySelectorAll('.slider');
             
-            sliders.forEach((slider, index) => {
+            sliders.forEach((slider) => {
                 let currentSlide = 0;
-                const slides = slider.children;
+                const slides = Array.from(slider.children);
                 const slideCount = slides.length;
                 let autoSlideInterval;
+
+                function setActiveSlide() {
+                    slides.forEach((img, i) => {
+                        if (i === currentSlide) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
+                        }
+                    });
+                }
                 
                 function slideNext() {
-                    currentSlide++;
-                    if (currentSlide >= slideCount) {
-                        currentSlide = 0;
-                    }
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    updateSlider();
+                }
+                
+                function slidePrev() {
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
                     updateSlider();
                 }
                 
                 function updateSlider() {
                     const translateX = -currentSlide * 100;
                     slider.style.transform = `translateX(${translateX}%)`;
+                    setActiveSlide();
                 }
                 
                 function startAutoSlide() {
-                    autoSlideInterval = setInterval(slideNext, 4000);
+                    autoSlideInterval = setInterval(slideNext, 3500);
                 }
                 
                 function stopAutoSlide() {
                     clearInterval(autoSlideInterval);
                 }
                 
-                // Start auto-sliding
+                // Init
+                setActiveSlide();
                 startAutoSlide();
                 
-                // Pause on hover
                 slider.parentElement.addEventListener('mouseenter', stopAutoSlide);
                 slider.parentElement.addEventListener('mouseleave', startAutoSlide);
                 
-                // Touch/swipe support for mobile
+                // Touch support
                 let startX = 0;
                 let currentX = 0;
                 let isDragging = false;
@@ -1221,12 +1186,12 @@
                     startX = e.touches[0].clientX;
                     isDragging = true;
                     stopAutoSlide();
-                });
+                }, { passive: true });
                 
                 slider.addEventListener('touchmove', (e) => {
                     if (!isDragging) return;
                     currentX = e.touches[0].clientX;
-                });
+                }, { passive: true });
                 
                 slider.addEventListener('touchend', () => {
                     if (!isDragging) return;
@@ -1237,67 +1202,65 @@
                         if (deltaX > 0) {
                             slideNext();
                         } else {
-                            currentSlide--;
-                            if (currentSlide < 0) {
-                                currentSlide = slideCount - 1;
-                            }
-                            updateSlider();
+                            slidePrev();
                         }
-                    }
-                    
-                    startAutoSlide();
-                });
-            });
-            
-            // Add hover effects to service cards
-            const serviceCards = document.querySelectorAll('.service-card, .pricing-card, .about-card');
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-15px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-            
-            // Smooth scrolling for better UX
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    } else {
+                        startAutoSlide();
                     }
                 });
-            });
-            
-            // Add entrance animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all cards and sections
-            document.querySelectorAll('.service-card, .pricing-card, .about-card, .slider-container').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(50px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(el);
             });
         });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        (function() {
+            const toggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!toggle || !mobileMenu) return;
+
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+                toggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            }
+
+            toggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            // Close on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                });
+            });
+        })();
     </script>
 </body>
 </html>
