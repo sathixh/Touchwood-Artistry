@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touchwood Artistry - Premium Beauty & Makeup Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -1303,6 +1304,264 @@
                 link.addEventListener('click', () => {
                     closeMenu();
                 });
+            });
+        })();
+    </script>
+
+    <!-- AI Chat Box Styles -->
+    <style>
+        .chat-toggle {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 110;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            color: var(--light);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .chat-window {
+            position: fixed;
+            right: 20px;
+            bottom: 88px;
+            width: 320px;
+            max-height: 65vh;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+            overflow: hidden;
+            z-index: 110;
+            display: none;
+        }
+        .chat-window.open { display: grid; grid-template-rows: auto 1fr auto; }
+        .chat-header {
+            padding: 0.9rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .chat-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .chat-messages {
+            padding: 0.9rem;
+            overflow-y: auto;
+            display: grid;
+            gap: 0.6rem;
+        }
+        .chat-msg {
+            max-width: 88%;
+            padding: 0.6rem 0.8rem;
+            border-radius: 12px;
+            line-height: 1.35;
+            font-size: 0.9rem;
+        }
+        .chat-msg.user {
+            margin-left: auto;
+            background: rgba(255,255,255,0.08);
+        }
+        .chat-msg.bot {
+            background: rgba(108, 92, 231, 0.18);
+            border: 1px solid rgba(108, 92, 231, 0.25);
+        }
+        .chat-suggestions {
+            padding: 0.6rem 0.9rem 0;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .chat-chip {
+            padding: 0.4rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--light);
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .chat-input {
+            padding: 0.6rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.12);
+        }
+        .chat-input input {
+            width: 100%;
+            padding: 0.65rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.06);
+            color: var(--light);
+        }
+        .chat-send {
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--color-1), var(--color-4));
+            color: var(--light);
+            cursor: pointer;
+        }
+        @media (max-width: 480px) {
+            .chat-window { right: 12px; left: 12px; width: auto; }
+            .chat-toggle { right: 16px; bottom: 16px; }
+        }
+    </style>
+
+    <!-- AI Chat Box -->
+    <div class="chat-window" id="chatWindow" aria-live="polite" aria-label="AI Chat Box">
+        <div class="chat-header">
+            <div class="chat-title"><i class="fas fa-robot"></i>AI Assistant</div>
+            <button class="chat-send" id="chatClose" style="padding: 0.3rem 0.6rem;"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-suggestions" id="chatSuggestions">
+            <button class="chat-chip">Suggest bridal look</button>
+            <button class="chat-chip">Best skincare routine</button>
+            <button class="chat-chip">Help with pricing</button>
+            <button class="chat-chip">Wedding crew packages</button>
+            <button class="chat-chip">See reviews</button>
+            <button class="chat-chip">Keerthi artist reviews</button>
+            <button class="chat-chip">Services list</button>
+            <button class="chat-chip">Skin & Aesthetic Treatments</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">Hi! I can help with looks, skincare, pricing and bookings.</div>
+        </div>
+        <div class="chat-input">
+            <input id="chatInput" type="text" placeholder="Type your message..." aria-label="Type your message">
+            <button class="chat-send" id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button class="chat-toggle" id="chatToggle" aria-label="Open chat"><i class="fas fa-comments"></i></button>
+
+    <!-- AI Chat Box Logic -->
+    <script>
+        (function () {
+            const chatToggle = document.getElementById('chatToggle');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatClose = document.getElementById('chatClose');
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const chatSend = document.getElementById('chatSend');
+            const chatSuggestions = document.getElementById('chatSuggestions');
+
+            // In-page knowledge sourced from site content
+            const kb = {
+                services: [
+                    'Airbrush Makeup — Premium Finish',
+                    'Ultra Pro HD Makeup — Camera Ready',
+                    'HD Makeup — Picture Perfect',
+                    'Partial HD Makeup — Subtle Glamour',
+                    'MAC Makeup — Professional Grade',
+                    'Matte Look — Flawless Finish',
+                    'Semi Bridal Makeup — Elegant Beauty',
+                    'Groom Makeup — Handsome Enhancement'
+                ],
+                pricingWeddingCrew: [
+                    'Bridesmaids Glam — Starting Rs.4,000',
+                    'Saree Draping — Rs.800',
+                    'Hair Styling — Rs.800',
+                    'Face Makeup — Rs.2,500'
+                ],
+                pricingLooks: [
+                    '😊 Airbrushed Skin Look — Rs.28,000 onwards — Soft-focus, lightweight finish',
+                    '✨ Glass Skin — Rs.30,000 — Luminous, dewy glow',
+                    '📸 HD Look — Rs.22,000 onwards — Camera-ready clarity',
+                    '🎥 Partial HD Look — Rs.20,000 — Natural HD enhancement',
+                    '🎨 MAC Look — Rs.20,000 — Bold, premium finish',
+                    '🧴 Matt Look — Rs.15,000 — Shine-free, velvety complexion',
+                    '👰‍♀️ Semi Bridal — Rs.12,000 — Elegant bridal-ready look'
+                ],
+                clinical: [
+                    'Micro Needling — Skin Rejuvenation',
+                    'HF & RF Treatments — Advanced Technology',
+                    'Professional Skin Peels — Deep Cleansing',
+                    'Luxury Facials — Premium Skincare'
+                ],
+                booking: 'Call 9095031045 to book your appointment.'
+            };
+
+            function toggleChat(open) {
+                if (open === true) chatWindow.classList.add('open');
+                else if (open === false) chatWindow.classList.remove('open');
+                else chatWindow.classList.toggle('open');
+            }
+
+            function addMsg(text, role) {
+                const div = document.createElement('div');
+                div.className = 'chat-msg ' + role;
+                div.textContent = text;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function botReply(userText) {
+                const t = userText.toLowerCase();
+                if (t.includes('bridal') || t.includes('look')) {
+                    return 'Bridal Look Suggestions:\n- Airbrushed: soft-focus, long-lasting\n- HD: camera-ready clarity\n- Glass Skin: dewy, luminous glow\nPrices:\n- Airbrushed (Rs.28,000 onwards)\n- HD (Rs.22,000 onwards)\n- Glass (Rs.30,000)\nWant me to compare by skin type or event?';
+                }
+                if (t.includes('skin') || t.includes('skincare') || t.includes('routine')) {
+                    return 'Skincare Guide:\nAM: Cleanser → Vitamin C → Moisturizer → SPF 50\nPM: Cleanser → Target serum → Retinol (if suitable) → Moisturizer\nTreatments available: \n- ' + kb.clinical.join('\n- ');
+                }
+                if (t.includes('price') || t.includes('pricing') || t.includes('cost') || t.includes('rs')) {
+                    return 'Pricing Details:\nLooks:\n- ' + kb.pricingLooks.join('\n- ') + '\n\nWedding Crew:\n- ' + kb.pricingWeddingCrew.join('\n- ') + '\nNeed help choosing for your event?';
+                }
+                if (t.includes('wedding') || t.includes('crew') || t.includes('bridesmaid')) {
+                    return 'Wedding Crew Services:\n- ' + kb.pricingWeddingCrew.join('\n- ') + '\nGroup discounts available with bridal bookings.';
+                }
+                if (t.includes('book') || t.includes('appointment') || t.includes('call')) {
+                    return kb.booking + ' I can also shortlist a look based on outfit and skin type.';
+                }
+                if (t.includes('keerthi') && t.includes('review')) {
+                    return 'Keerthi Reviews:\n• ⭐⭐⭐⭐⭐ "Absolutely flawless bridal look—so patient and professional!" — Nisha\n• ⭐⭐⭐⭐⭐ "Makeup lasted all day; Keerthi understood exactly what I wanted." — Priya\n• ⭐⭐⭐⭐⭐ "Perfect balance of glam and elegance. Highly recommend!" — Aishwarya';
+                }
+                if (t.includes('review') || t.includes('reviews') || t.includes('rating') ) {
+                    return 'Client Reviews:\n• ⭐⭐⭐⭐⭐ "Stunning work, felt so confident all day!" — Ananya\n• ⭐⭐⭐⭐⭐ "Professional, hygienic, and exceptionally skilled." — Meera\n• ⭐⭐⭐⭐ "Great service and beautiful finish." — Rithika\nAsk for "Keerthi artist reviews" to see artist-specific feedback.';
+                }
+                if (t.includes('service') || t.includes('services list') || t.trim() === 'services') {
+                    return 'Our Services:\n- ' + kb.services.join('\n- ');
+                }
+                if (t.includes('skin & aesthetic') || t.includes('aesthetic') || t.includes('clinical')) {
+                    return 'Skin & Aesthetic Treatments:\n- ' + kb.clinical.join('\n- ') + '\nAsk which suits your concern (acne, texture, glow).';
+                }
+                if (t.includes('offer') || t.includes('special')) {
+                    return 'Please ask about pricing or services for current options.';
+                }
+                return 'I can help with services, detailed pricing, bridal look suggestions, skincare routines, reviews, and bookings. Try: "Services list", "Skin & Aesthetic Treatments", or "Help with pricing".';
+            }
+
+            function handleSend() {
+                const text = chatInput.value.trim();
+                if (!text) return;
+                addMsg(text, 'user');
+                chatInput.value = '';
+                setTimeout(() => addMsg(botReply(text), 'bot'), 200);
+            }
+
+            chatToggle.addEventListener('click', () => toggleChat());
+            chatClose.addEventListener('click', () => toggleChat(false));
+            chatSend.addEventListener('click', handleSend);
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+            chatSuggestions.addEventListener('click', (e) => {
+                const chip = e.target.closest('.chat-chip');
+                if (!chip) return;
+                chatInput.value = chip.textContent;
+                handleSend();
             });
         })();
     </script>
